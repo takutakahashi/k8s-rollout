@@ -1,0 +1,10 @@
+name: "build"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: takutakahashi/github-actions/.github/workflows/ghcr.yaml@main
+    with:
+      image: takutakahashi/k8s-rollout:${{ github.sha }}
