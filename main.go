@@ -12,7 +12,7 @@ func main() {
 	e := echo.New()
 	e.PUT("/:resource/:namespace/:name", func(c echo.Context) error {
 		resource := c.Param("resource")
-		if slices.Contains([]string{"deployment", "deploy", "statefulset", "daemonset"}, resource) {
+		if !slices.Contains([]string{"deployment", "deploy", "statefulset", "daemonset"}, resource) {
 			return c.String(400, "bad input")
 		}
 		namespace := c.Param("namespace")
